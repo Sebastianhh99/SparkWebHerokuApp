@@ -160,5 +160,7 @@ spark-warehouse/
 # Ignore all local history of files
 .history
 .ionide
-
+.classpath
+.project
+.settings
 # End of https://www.toptal.com/developers/gitignore/api/java,visualstudiocode,maven,spark
