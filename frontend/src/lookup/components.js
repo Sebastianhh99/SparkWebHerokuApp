@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const globalUrl = "http://localhost:4567"
+const globalUrl = "https://sparkwebheroku.herokuapp.com" //https://sparkwebheroku.herokuapp.com // http://localhost:4567
 
 export class ApiLookup{
     static axiosLookup(method,endpoint,callback,data){
