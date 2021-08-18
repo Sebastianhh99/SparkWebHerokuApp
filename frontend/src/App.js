@@ -45,22 +45,25 @@ function App() {
     if(status===200){
       const set=response[Object.keys(response)[0]]
       const labels = ['1. open','2. high','3. low','4. close']
-      const dates = Object.keys(set)
+      const labelsColors={
+        '1. open':'rgb(100,30,22',
+        '2. high':'rgb(21,67,96',
+        '3. low':'rgb(11,83,69',
+        '4. close':'rgb(123,125,125'
+      }
+      const dates = Object.keys(set).sort()
       var datasets = []
       labels.forEach(element=>{
         var data = []
         dates.forEach(date=>{
           data.push(set[date][element])
         })
-        const r= Math.floor(Math.random() * 255) +1
-        const g= Math.floor(Math.random() * 255) +1
-        const b= Math.floor(Math.random() * 255) +1
         datasets.push({
           label: element,
           data: data,
           fill: false,
-          backgroundColor: `rgb(${r},${g},${b})`,
-          borderColor: `rgb(${r},${g},${b},0.2)`,
+          backgroundColor: `${labelsColors[element]})`,
+          borderColor: `${labelsColors[element]},0.5)`,
         })
       })
       setData({
@@ -115,7 +118,7 @@ function App() {
       getOptionSelected={(option,value)=> option.function===value.function}
       getOptionLabel={(option)=>option.name}
       renderInput={(params) => (
-        <TextField {...params} label="" variant="filled" />
+        <TextField {...params} label="Funcion" variant="filled" />
       )}
     />
     {data ? <Line data={data} options={optionsChart}/>:null}
