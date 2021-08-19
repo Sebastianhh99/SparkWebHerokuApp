@@ -6,12 +6,16 @@ import static spark.Spark.*;
 
 import org.json.JSONObject;
 
+import edu.escuelaing.arep.service.DataService;
+import edu.escuelaing.arep.service.DataServiceImplement;
+
 /**
  * Hello world!
  *
  */
 public class App 
 {
+    private static DataService dataService = new DataServiceImplement();
     /**
      * This method reads the default port as specified by the PORT variable in
      * the environment.
@@ -55,6 +59,6 @@ public class App
 
     private static JSONObject facadeAlpha(Request req, Response res) {
         JSONObject data = new JSONObject(req.body());
-        return HttpConnectionExample.alphaVantage(data.getString("symbol"),data.getString("function"));
+        return dataService.getDataAlpha(data.getString("symbol"),data.getString("function"));
     }
 }
