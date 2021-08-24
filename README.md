@@ -9,7 +9,7 @@
 >>
 >>link del app: https://sparkwebheroku.herokuapp.com/
 
-![App](link)
+![App](https://user-images.githubusercontent.com/39110763/130667864-6203c1dc-1d21-45f5-936b-95962e1ba463.png)
 >## Documentacion
 >> La documentacion puede ser encontrada dentro de resources/docs/index.html
 >## Como correr el proyecto
