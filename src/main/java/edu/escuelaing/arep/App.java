@@ -10,7 +10,7 @@ import edu.escuelaing.arep.service.DataService;
 import edu.escuelaing.arep.service.DataServiceImplement;
 
 /**
- * Hello world!
+ * App
  *
  */
 public class App 
@@ -30,6 +30,10 @@ public class App
         return 4567; //returns default port if heroku-port isn't set (i.e. on localhost)
     }
 
+    /**
+     * main Method
+     * @param args
+     */
     public static void main(String[] args) {
         staticFiles.location("/public");
         port(getPort());
@@ -57,6 +61,12 @@ public class App
         post("/api/facadealpha","application/json",(req,res) -> facadeAlpha(req, res));
     }
 
+    /**
+     * 
+     * @param req
+     * @param res
+     * @return
+     */
     private static JSONObject facadeAlpha(Request req, Response res) {
         JSONObject data = new JSONObject(req.body());
         return dataService.getDataAlpha(data.getString("symbol"),data.getString("function"));

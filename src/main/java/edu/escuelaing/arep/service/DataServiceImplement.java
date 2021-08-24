@@ -11,10 +11,16 @@ import org.apache.commons.io.IOUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Implementacion for DataService
+ */
 public class DataServiceImplement implements DataService{
     private static HashMap<String,HashMap<String,JSONObject>> cache = new HashMap<String,HashMap<String,JSONObject>>();
     private static HashMap<String,HashMap<String,LocalDateTime>> cacheDate = new HashMap<String,HashMap<String,LocalDateTime>>();
 
+    /**
+     * Updates the cache 
+     */
     private JSONObject updateCache(String symbol,String function, String GET_URL) throws JSONException, MalformedURLException, IOException{
         JSONObject json = new JSONObject(IOUtils.toString(new URL(GET_URL),Charset.forName("UTF-8")));
         cache.get(function).put(symbol, json);
@@ -22,6 +28,9 @@ public class DataServiceImplement implements DataService{
         return json;
     }
 
+    /**
+     * Get the Data Information
+     */
     public JSONObject getDataAlpha(String symbol,String function){
         String GET_URL="";
         if(function.equals("TIME_SERIES_INTRADAY")){
